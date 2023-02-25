@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Ignat Vetoshin](https://up.htmlacademy.ru/javascript/28/user/2209339).
-* Наставник: `Неизвестно`.
+* Наставник: [Ирина Серышева](https://htmlacademy.ru/profile/id2070039).
 
 ---
 
