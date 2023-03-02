@@ -1,5 +1,5 @@
 // Функция №1
-function fun1 (testString, lengthString) {
+function checkLength (testString, lengthString) {
   if (testString.length <= lengthString) {
     return true;
   }
@@ -7,33 +7,32 @@ function fun1 (testString, lengthString) {
 }
 
 // Функция №2
-function fun2 (mainString) {
+function checkPolindrome (mainString) {
   let reverseString = mainString.split('').reverse().join('');
-  if (reverseString === mainString) {
-    return true;
-  }
-  return false;
+  return reverseString === mainString;
 }
 
 // Функция №3
-
-function fun3 (mainString) {
-  for (var index in mainString) {
-    if ( parseInt(mainString[index] !== NaN) ) {
-      let num;
-      num += mainString[index];
-      return parseInt(num);
+function checkNumber (mainString) {
+  let num = '';
+  for (let j in mainString) {
+    if (!Number.isNaN(parseInt(mainString[j], 10))) {
+      num += mainString[j];
     }
-    return NaN;
   }
+  return num;
 }
+
 // Функция №4
-
 function fun4 (mainString, minLength, addString) {
-  while (mainString.length < minLength) {
-    mainString = addString + mainString;
+  let addLength = minLength - mainString.length;
+  if (addLength <= 0) {
+    return mainString;
   }
-  return mainString;
-}
 
-console.log(fun4('q', 4, 'werty'));
+  let slice = addString.slice(0, addLength % addString.length);
+
+  let repeat = addString.repeat(addLength / addString.length);
+
+  return slice + repeat + mainString;
+}
