@@ -20,8 +20,10 @@ function checkNumber (mainString) {
       num += mainString[j];
     }
   }
-  return num;
+  return parseInt(num, 10);
 }
+
+console.log(checkNumber('jweouoqwrf'))
 
 // Функция №4
 function fun4 (mainString, minLength, addString) {
