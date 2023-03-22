@@ -1,15 +1,3 @@
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
-
-const createIdGenerator = () => {
-  let id = 1;
-  return () => id++;
-};
-
 const PHRASES = [
   'Если смогу, я сделаю это. Конец истории.',
   'Смейтесь как только умеете, любите столько, сколько живете.',
@@ -36,9 +24,22 @@ const NAME = [
   'Даниил', 'Денис', 'Егор', 'Игорь', 'Лев', 'Леонид', 'Павел', 'Петр', 'Роман',
 ];
 
+export const getRandomInteger = (a, b) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
+
+const createIdGenerator = () => {
+  let id = 1;
+  return () => id++;
+};
+
+
 export const getRandomDescription = () => PHRASES[getRandomInteger(0, 8)];
 export const getRandomMessage = () => COMMENTS[getRandomInteger(0, 5)];
 export const getRandomName = () => NAME[getRandomInteger(0, 13)];
 export const createPhotoId = createIdGenerator();
 export const createCommentId = createIdGenerator();
-export {getRandomInteger};
+export const isEscapeKey = (evt) => evt.key === 'Escape';
