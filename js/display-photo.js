@@ -1,3 +1,4 @@
+import {displayFullSizePhoto} from './display-fillsize-photo.js';
 const list = document.querySelector('.pictures');
 const elementTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
@@ -6,6 +7,9 @@ const displayPhoto = (photos) => photos.forEach((photo) => {
   element.querySelector('.picture__img').src = photo.url;
   element.querySelector('.picture__likes').textContent = photo.like;
   element.querySelector('.picture__comments').textContent = photo.comments.length;
+  element.addEventListener('click', () => {
+    displayFullSizePhoto(photo);
+  });
   list.appendChild(element);
 });
 

@@ -8,7 +8,7 @@ const createPhotoObject = () => {
     url: `photos/${id}.jpg`,
     description: getRandomDescription(),
     like: getRandomInteger(15, 200),
-    comments: Array.from({length: getRandomInteger(0, 3)}, createComment),
+    comments: Array.from({length: getRandomInteger(0, 10)}, createComment),
   };
 };
 
