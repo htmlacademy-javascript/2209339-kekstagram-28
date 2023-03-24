@@ -5,8 +5,14 @@ const bigPicturesImg = bigPicture.querySelector('.big-picture__img img');
 const likesCount = bigPicture.querySelector('.likes-count');
 const commentsCount = bigPicture.querySelector('.comments-count');
 const commentsList = bigPicture.querySelector('.social__comments');
+const socialCommentCount = bigPicture.querySelector('.social__comment-count');
 const socialCommentTemplate = bigPicture.querySelector('.social__comment');
 const socialCaption = bigPicture.querySelector('.social__caption');
+const commentsLoader = bigPicture.querySelector('.comments-loader');
+const COUNT = 5;
+let start = 0;
+let currentComments = [];
+
 // Открыть
 const displayComment = (comment) => {
   const socialComment = socialCommentTemplate.cloneNode(true);
@@ -18,12 +24,23 @@ const displayComment = (comment) => {
   commentsList.append(socialComment);
 };
 
-const displayComments = (comments) => {
-  commentsList.innerHTML = '';
-  for (const comment of comments) {
+const displayComments = () => {
+  const limit = start + COUNT;
+  for (const comment of currentComments.slice(start, limit)) {
     displayComment(comment);
   }
-}
+  socialCommentCount.textContent = `${Math.min(currentComments.length, limit)} из ${currentComments.length} комментариев`;
+  start += COUNT;
+  if (currentComments.length <= limit) {
+    commentsLoader.classList.add('hidden');
+  } else {
+    commentsLoader.classList.remove('hidden');
+  }
+};
+
+commentsLoader.addEventListener('click', () => {
+  displayComments();
+});
 
 const displayFullSizePhoto = (photo) => {
   bigPicture.classList.remove('hidden');
@@ -33,25 +50,27 @@ const displayFullSizePhoto = (photo) => {
   socialCaption.textContent = photo.description;
   likesCount.textContent = photo.like;
   commentsCount.textContent = photo.comments.length;
-  displayComments(photo.comments)
+  commentsList.innerHTML = '';
+  currentComments = photo.comments;
+  start = 0;
+  displayComments();
 };
 
-
 // Закрыть
-const closeModal () => {
+const closeModal = () => {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
-}
+};
 
 document.addEventListener('keydown', (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeModal()
+    closeModal();
   }
 });
 
 bigPicturesCancel.addEventListener('click', () => {
-  closeModal()
+  closeModal();
 });
 
 export {displayFullSizePhoto};
