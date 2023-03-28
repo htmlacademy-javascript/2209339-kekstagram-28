@@ -30,13 +30,13 @@ pristine.addValidator(
 
 pristine.addValidator(
   textHashtags,
-  (value) => getTagsFromValue(value).every((tag) => !tag || hashtagRegex.test(tag)),
+  (value) => !value || getTagsFromValue(value).every((tag) => hashtagRegex.test(tag)),
   'Хэштег должен состоять только из букв и цифр.'
 );
 
 pristine.addValidator(
   textHashtags,
-  (value) => getTagsFromValue(value).every((tag) => !tag || tag.startsWith('#')),
+  (value) => !value || getTagsFromValue(value).every((tag) => tag.startsWith('#')),
   'Хэштег должен начинаться с решетки'
 );
 
