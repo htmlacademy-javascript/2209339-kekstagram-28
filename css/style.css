@@ -1409,9 +1409,9 @@ main {
   display: none;
 }
 
-.img-upload__field-wrapper__error {
+.pristine-error {
   background-color: #e90000;
-  color: #232321;
+  color: #ffffff;
   font-size: 12px;
   margin-top: -20px;
   z-index: 10000;
