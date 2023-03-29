@@ -8,8 +8,7 @@ const textHashtags = document.querySelector('.text__hashtags');
 const textDescription = document.querySelector('.text__description');
 const hashtagRegex = /[a-zа-я0-9]$/i;
 const HASHTAGS_LIMIT = 5;
-const HASHTAGS_MAXLENGTH = 20;
-// const TAG_ERROR_TEXT = 'Хэштег должен начинатся с решетки и состоять только из букв и цифр. Длина хештега должна быть не более 20 символов. Количество хэштегов не должно превышать 5 и они не должны повторятся.';
+const HASHTAG_MAXLENGTH = 20;
 
 const pristine = new Pristine(imgUploadForm, {
   classTo: 'img-upload__field-wrapper',
@@ -42,7 +41,7 @@ pristine.addValidator(
 
 pristine.addValidator(
   textHashtags,
-  (value) => getTagsFromValue(value).every((tag) => tag.length <= HASHTAGS_MAXLENGTH),
+  (value) => getTagsFromValue(value).every((tag) => tag.length <= HASHTAG_MAXLENGTH),
   'Длина хештега должна быть не более 20 символов'
 );
 
@@ -55,32 +54,10 @@ pristine.addValidator(
   'Хэштеги не должны повторятся'
 );
 
-// const isValidTag = (tag) => hashtagRegex.test(tag);
-
-// const hasValidCount = (tags) => tags.length <= HASHTAGS_LIMIT;
-
-// const hasUniqueTags = (tags) => {
-//   const lowerCaseTags = tags.map((tag) => tag.toLowerCase());
-//   return lowerCaseTags.length === new Set(lowerCaseTags).size;
-// };
-
-// const validateTags = (value) => {
-//   if (!value) {
-//     return true;
-//   }
-//   const tags = value.trim().split(' ');
-//   return hasValidCount(tags) && hasUniqueTags(tags) && tags.every(isValidTag);
-// };
-
-// pristine.addValidator(
-//   textHashtags,
-//   validateTags,
-//   TAG_ERROR_TEXT
-// );
-
 const onFormSubmit = (evt) => {
-  evt.preventDefault();
-  pristine.validate();
+  if (!pristine.validate()) {
+    evt.preventDefault();
+  }
 };
 
 // Закрывает модальное окно с формой
