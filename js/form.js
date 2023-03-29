@@ -1,4 +1,5 @@
 import {isEscapeKey} from './util.js';
+import {resetScale} from './scale.js';
 
 const overlay = document.querySelector('.img-upload__overlay');
 const imgUploadStart = document.querySelector('.img-upload__start');
@@ -15,7 +16,6 @@ const pristine = new Pristine(imgUploadForm, {
   errorTextParent: 'img-upload__field-wrapper',
   errorTextClass: 'pristine-error',
 });
-
 
 // Валидация хэштега
 
@@ -70,6 +70,7 @@ const hideModal = () => {
 
 // Открывает модальное окно с формой
 const showModal = () => {
+  resetScale();
   overlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeyDown);
