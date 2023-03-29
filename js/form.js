@@ -1,5 +1,6 @@
 import {isEscapeKey} from './util.js';
 import {resetScale} from './scale.js';
+import {resetEffects} from './effect.js';
 
 const overlay = document.querySelector('.img-upload__overlay');
 const imgUploadStart = document.querySelector('.img-upload__start');
@@ -71,6 +72,7 @@ const hideModal = () => {
 // Открывает модальное окно с формой
 const showModal = () => {
   resetScale();
+  resetEffects();
   overlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeyDown);
