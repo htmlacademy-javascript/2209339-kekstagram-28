@@ -112,7 +112,7 @@ noUiSlider.create(slider, {
 hidenSlider();
 
 effects.addEventListener('change', onEffectChange);
-// slider.noUiSlider.on('update', onSliderUpdate());
+slider.noUiSlider.on('update', onSliderUpdate);
 
 export const resetEffects = () => {
   chosenEffect = DEFAULT_EFFECT;
