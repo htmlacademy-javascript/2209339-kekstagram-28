@@ -50,24 +50,24 @@ const EFFECTS = [
 ];
 
 const DEFAULT_EFFECT = EFFECTS[0];
-const img = document.querySelector('.img-upload__preview img');
-const effects = document.querySelector('.effects');
-const slider = document.querySelector('.effect-level__slider');
-const effectValue = document.querySelector('.effect-level__value');
-const sliderContainer = document.querySelector('.img-upload__effect-level');
+const imgElement = document.querySelector('.img-upload__preview img');
+const effectsElement = document.querySelector('.effects');
+const sliderElement = document.querySelector('.effect-level__slider');
+const effectElement = document.querySelector('.effect-level__value');
+const sliderContainerElement = document.querySelector('.img-upload__effect-level');
 let chosenEffect = DEFAULT_EFFECT;
 
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
 
 const showSlider = () => {
-  sliderContainer.classList.remove('hidden');
+  sliderContainerElement.classList.remove('hidden');
 };
-const hidenSlider = () => {
-  sliderContainer.classList.add('hidden');
+const hideSlider = () => {
+  sliderContainerElement.classList.add('hidden');
 };
 
 const updateSlider = () => {
-  slider.noUiSlider.updateOptions({
+  sliderElement.noUiSlider.updateOptions({
     range: {
       min: chosenEffect.min,
       max: chosenEffect.max,
@@ -77,7 +77,7 @@ const updateSlider = () => {
   });
 
   if (isDefault()) {
-    hidenSlider();
+    hideSlider();
   } else {
     showSlider();
   }
@@ -88,19 +88,18 @@ const onEffectChange = (evt) => {
     return;
   }
   chosenEffect = EFFECTS.find((effect) => effect.name === evt.target.value);
-  img.className = `effects__preview--${chosenEffect.name}`;
   updateSlider();
 };
 
 const onSliderUpdate = () => {
-  const sliderValue = slider.noUiSlider.get();
-  img.style.filter = isDefault()
+  const sliderValue = sliderElement.noUiSlider.get();
+  imgElement.style.filter = isDefault()
     ? DEFAULT_EFFECT.style
     : `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`;
-  effectValue.value = sliderValue;
+  effectElement.value = sliderValue;
 };
 
-noUiSlider.create(slider, {
+noUiSlider.create(sliderElement, {
   range: {
     min: DEFAULT_EFFECT.min,
     max: DEFAULT_EFFECT.max,
@@ -109,10 +108,10 @@ noUiSlider.create(slider, {
   start: DEFAULT_EFFECT.max,
   connect: 'lower',
 });
-hidenSlider();
+hideSlider();
 
-effects.addEventListener('change', onEffectChange);
-slider.noUiSlider.on('update', onSliderUpdate);
+effectsElement.addEventListener('change', onEffectChange);
+sliderElement.noUiSlider.on('update', onSliderUpdate);
 
 export const resetEffects = () => {
   chosenEffect = DEFAULT_EFFECT;
