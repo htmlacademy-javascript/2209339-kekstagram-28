@@ -118,7 +118,6 @@ const createDisplayMessage = (mode) => {
       close();
     }
   });
-  // body.appendChild(element);
   return {
     open: () => {
       document.addEventListener('keydown', onKeyDowm);
@@ -140,8 +139,6 @@ const setUserFormSubmit = () => {
 
     const isValid = pristine.validate();
     if (isValid) {
-      // const formData = new FormData(evt.target);
-
       sendData(new FormData(evt.target))
         .then((response) => {
           if (response.ok) {
