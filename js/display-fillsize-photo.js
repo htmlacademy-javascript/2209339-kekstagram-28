@@ -48,7 +48,7 @@ const displayFullSizePhoto = (photo) => {
   bigPicturesImg.src = photo.url;
   bigPicturesImg.alt = photo.description;
   socialCaption.textContent = photo.description;
-  likesCount.textContent = photo.like;
+  likesCount.textContent = photo.likes;
   commentsCount.textContent = photo.comments.length;
   commentsList.innerHTML = '';
   currentComments = photo.comments;

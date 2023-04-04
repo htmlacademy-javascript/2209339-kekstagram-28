@@ -1,9 +1,14 @@
-import {createPhotoObjects} from './create-photo-object.js';
+import {setUserFormSubmit} from './form.js';
 import {displayPhoto} from './display-photo.js';
+import {showAlert} from './util.js';
+import {getData} from './api.js';
 
-import './form.js';
-import './scale.js';
-import './effect.js';
+getData()
+  .then((data) => {
+    displayPhoto(data);
+  })
+  .catch(() => {
+    showAlert('Не удалось загрузить фотографии. Перезагрузите страницу.');
+  });
 
-
-displayPhoto(createPhotoObjects());
+setUserFormSubmit();
