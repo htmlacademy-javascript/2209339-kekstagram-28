@@ -1,11 +1,13 @@
 import {setUserFormSubmit} from './form.js';
-import {displayPhoto} from './display-photo.js';
+import {displayPhotos} from './display-photo.js';
 import {showAlert} from './util.js';
 import {getData} from './api.js';
+import {initFilters} from './filter.js';
 
 getData()
   .then((data) => {
-    displayPhoto(data);
+    displayPhotos(data);
+    initFilters(data);
   })
   .catch(() => {
     showAlert('Не удалось загрузить фотографии. Перезагрузите страницу.');

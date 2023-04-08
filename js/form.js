@@ -14,6 +14,11 @@ const hashtagRegex = /[a-zа-я0-9]$/i;
 const HASHTAGS_LIMIT = 5;
 const HASHTAG_MAXLENGTH = 20;
 
+const MessageMode = {
+  ERROR: 'error',
+  SUCCESS: 'success',
+};
+
 const pristine = new Pristine(imgUploadForm, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent: 'img-upload__field-wrapper',
@@ -91,10 +96,6 @@ function onFormKeyDown (evt) {
 }
 
 // Закрывает сообщение при отправке формы
-const MessageMode = {
-  ERROR: 'error',
-  SUCCESS: 'success',
-};
 
 const createDisplayMessage = (mode) => {
   const element = document.querySelector(`#${mode}`).content.querySelector(`.${mode}`).cloneNode(true);
