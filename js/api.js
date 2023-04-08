@@ -4,7 +4,6 @@ const Route = {
   SEND_DATA: '/'
 };
 
-
 const getData = () => fetch(
   `${BASE_URL}${Route.GET_DATA}`)
   .then((response) => response.json());
