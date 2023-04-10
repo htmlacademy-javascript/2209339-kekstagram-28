@@ -1,10 +1,12 @@
-import {isEscapeKey} from './util.js';
+import {isEscapeKey, showAlert} from './util.js';
 import {resetScale} from './scale.js';
 import {resetEffects} from './effect.js';
 import {sendData} from './api.js';
+import {chooseFile} from './file-chooser.js';
 
 const overlay = document.querySelector('.img-upload__overlay');
 const imgUploadStart = document.querySelector('.img-upload__start');
+const imgUploadInput = document.querySelector('.img-upload__input');
 const imgUploadCancel = document.querySelector('.img-upload__cancel');
 const imgUploadForm = document.querySelector('.img-upload__form');
 const textHashtags = document.querySelector('.text__hashtags');
@@ -154,7 +156,15 @@ const setUserFormSubmit = () => {
   });
 };
 
-imgUploadStart.addEventListener('change', showModal);
+imgUploadStart.addEventListener('change', () => {
+  const errorMessage = chooseFile(imgUploadInput);
+  if (errorMessage) {
+    showAlert(errorMessage);
+  } else {
+    showModal();
+  }
+});
+
 imgUploadCancel.addEventListener('click', hideModal);
 imgUploadForm.addEventListener('submit', onFormSubmit);
 

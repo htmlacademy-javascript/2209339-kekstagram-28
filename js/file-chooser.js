@@ -1,16 +1,16 @@
 import {imgElement} from './effect.js';
-const inputFile = document.querySelector('.img-upload__input');
 const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
+const ERROR_MESSAGE = `Загрузите изображения в формате ${FILE_TYPES.join(', ')}`;
 
-export const fileChooser = () => {
-  inputFile.addEventListener('change', () => {
-    const file = inputFile.files[0];
-    const fileName = file.name.toLowerCase();
-
-    const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
-    if (matches) {
-      imgElement.src = URL.createObjectURL(file);
-    }
-  });
+const chooseFile = (fileInput) => {
+  const file = fileInput.files[0];
+  const fileName = file.name.toLowerCase();
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+  if (matches) {
+    imgElement.src = URL.createObjectURL(file);
+    return '';
+  }
+  return ERROR_MESSAGE;
 };
 
+export {chooseFile};
