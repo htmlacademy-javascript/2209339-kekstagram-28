@@ -117,3 +117,5 @@ export const resetEffects = () => {
   chosenEffect = DEFAULT_EFFECT;
   updateSlider();
 };
+
+export {imgElement};
