@@ -39,6 +39,6 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-export const isEscapeKey = (evt) => evt.key === 'Escape';
+const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export { debounce, shuffleArray, ALERT_SHOW_TIME, showAlert };
+export {debounce, shuffleArray, showAlert, ALERT_SHOW_TIME, isEscapeKey};

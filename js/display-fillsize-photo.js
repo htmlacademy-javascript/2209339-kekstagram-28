@@ -1,4 +1,4 @@
-import {isEscapeKey} from './util.js';
+import { isEscapeKey } from './util.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPicturesCancel = bigPicture.querySelector('.big-picture__cancel');
 const bigPicturesImg = bigPicture.querySelector('.big-picture__img img');
@@ -71,4 +71,4 @@ bigPicturesCancel.addEventListener('click', () => {
   closeModal();
 });
 
-export {displayFullSizePhoto};
+export { displayFullSizePhoto };

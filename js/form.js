@@ -11,6 +11,7 @@ const imgUploadCancel = document.querySelector('.img-upload__cancel');
 const imgUploadForm = document.querySelector('.img-upload__form');
 const textHashtags = document.querySelector('.text__hashtags');
 const textDescription = document.querySelector('.text__description');
+
 const hashtagRegex = /[a-zа-я0-9]$/i;
 const HASHTAGS_LIMIT = 5;
 const HASHTAG_MAXLENGTH = 20;
@@ -95,6 +96,7 @@ function onFormKeyDown(evt) {
   }
 }
 
+// Cообщение при отправке формы
 const createDisplayMessage = (mode) => {
   const element = document.querySelector(`#${mode}`).content.querySelector(`.${mode}`).cloneNode(true);
   const buttonElement = element.querySelector(`.${mode}__button`);
@@ -127,7 +129,6 @@ const createDisplayMessage = (mode) => {
   };
 };
 
-//Сообщение успешной отправки формы
 const successStatus = createDisplayMessage(MessagesMode.SUCCESS);
 const errorStatus = createDisplayMessage(MessagesMode.ERROR);
 
