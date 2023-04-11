@@ -1,8 +1,8 @@
-import {isEscapeKey, showAlert} from './util.js';
-import {resetScale} from './scale.js';
-import {resetEffects} from './effect.js';
-import {sendData} from './api.js';
-import {chooseFile} from './file-chooser.js';
+import { isEscapeKey, showAlert } from './util.js';
+import { resetScale } from './scale.js';
+import { resetEffects } from './effect.js';
+import { sendData } from './api.js';
+import { chooseFile } from './file-chooser.js';
 
 const overlay = document.querySelector('.img-upload__overlay');
 const imgUploadStart = document.querySelector('.img-upload__start');
@@ -16,7 +16,7 @@ const hashtagRegex = /[a-zа-я0-9]$/i;
 const HASHTAGS_LIMIT = 5;
 const HASHTAG_MAXLENGTH = 20;
 
-const MessageMode = {
+const MessagesMode = {
   ERROR: 'error',
   SUCCESS: 'success',
 };
@@ -28,7 +28,6 @@ const pristine = new Pristine(imgUploadForm, {
 });
 
 // Валидация хэштега
-
 const getTagsFromValue = (value) => value.trim().toLowerCase().split(' ');
 
 pristine.addValidator(
@@ -90,21 +89,20 @@ const showModal = () => {
 // Закрывает модальное окно с формой по нажатию ESC
 const isTextFieldFocused = () => document.activeElement === textHashtags || document.activeElement === textDescription;
 
-function onFormKeyDown (evt) {
+function onFormKeyDown(evt) {
   if (isEscapeKey(evt) && !isTextFieldFocused()) {
     evt.preventDefault();
     hideModal();
   }
 }
 
-// Закрывает сообщение при отправке формы
-
+// Cообщение при отправке формы
 const createDisplayMessage = (mode) => {
   const element = document.querySelector(`#${mode}`).content.querySelector(`.${mode}`).cloneNode(true);
   const buttonElement = element.querySelector(`.${mode}__button`);
   const close = () => {
     document.removeEventListener('keydown', onKeyDowm);
-    if (mode === MessageMode.ERROR) {
+    if (mode === MessagesMode.ERROR) {
       document.addEventListener('keydown', onFormKeyDown);
     } else {
       document.body.classList.remove('modal-open');
@@ -131,9 +129,8 @@ const createDisplayMessage = (mode) => {
   };
 };
 
-//Сообщение успешной отправки формы
-const successStatus = createDisplayMessage(MessageMode.SUCCESS);
-const errorStatus = createDisplayMessage(MessageMode.ERROR);
+const successStatus = createDisplayMessage(MessagesMode.SUCCESS);
+const errorStatus = createDisplayMessage(MessagesMode.ERROR);
 
 //Отправка формы
 const setUserFormSubmit = () => {
@@ -168,4 +165,4 @@ imgUploadStart.addEventListener('change', () => {
 imgUploadCancel.addEventListener('click', hideModal);
 imgUploadForm.addEventListener('submit', onFormSubmit);
 
-export {setUserFormSubmit};
+export { setUserFormSubmit };

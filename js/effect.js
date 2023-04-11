@@ -113,9 +113,9 @@ hideSlider();
 effectsElement.addEventListener('change', onEffectChange);
 sliderElement.noUiSlider.on('update', onSliderUpdate);
 
-export const resetEffects = () => {
+const resetEffects = () => {
   chosenEffect = DEFAULT_EFFECT;
   updateSlider();
 };
 
-export {imgElement};
+export { imgElement, resetEffects };

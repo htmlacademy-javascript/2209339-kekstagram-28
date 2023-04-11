@@ -1,4 +1,4 @@
-import {isEscapeKey} from './util.js';
+import { isEscapeKey } from './util.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPicturesCancel = bigPicture.querySelector('.big-picture__cancel');
 const bigPicturesImg = bigPicture.querySelector('.big-picture__img img');
@@ -13,7 +13,6 @@ const COUNT = 5;
 let start = 0;
 let currentComments = [];
 
-// Открыть
 const displayComment = (comment) => {
   const socialComment = socialCommentTemplate.cloneNode(true);
   const socialPicture = socialComment.querySelector('.social__picture');
@@ -56,7 +55,6 @@ const displayFullSizePhoto = (photo) => {
   displayComments();
 };
 
-// Закрыть
 const closeModal = () => {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
@@ -73,4 +71,4 @@ bigPicturesCancel.addEventListener('click', () => {
   closeModal();
 });
 
-export {displayFullSizePhoto};
+export { displayFullSizePhoto };

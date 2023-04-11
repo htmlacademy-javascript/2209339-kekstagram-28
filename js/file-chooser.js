@@ -1,4 +1,4 @@
-import {imgElement} from './effect.js';
+import { imgElement } from './effect.js';
 const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
 const ERROR_MESSAGE = `Загрузите изображения в формате ${FILE_TYPES.join(', ')}`;
 
@@ -13,4 +13,4 @@ const chooseFile = (fileInput) => {
   return ERROR_MESSAGE;
 };
 
-export {chooseFile};
+export { chooseFile };

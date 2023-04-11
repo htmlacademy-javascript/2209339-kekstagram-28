@@ -1,5 +1,5 @@
-import {shuffleArray, debounce} from './util.js';
-import {displayPhotos} from './display-photo.js';
+import { shuffleArray, debounce } from './util.js';
+import { displayPhotos } from './display-photo.js';
 
 const RANDOM_PHOTOS_COUNT = 10;
 
@@ -13,11 +13,10 @@ const filterCallback = {
 };
 
 //Показывает фильтр
-
 const initFilters = (data) => {
   let currentButton = filtersForm.querySelector('.img-filters__button--active');
   filtersForm.addEventListener('click', debounce((evt) => {
-    const {id} = evt.target;
+    const { id } = evt.target;
     if (filterCallback[id] && !evt.target.matches('.img-filters__button--active:not(#filter-random)')) {
       displayPhotos(filterCallback[id](data));
       currentButton.classList.remove('img-filters__button--active');
@@ -28,4 +27,4 @@ const initFilters = (data) => {
   imgFilter.classList.remove('img-filters--inactive');
 };
 
-export {initFilters};
+export { initFilters };

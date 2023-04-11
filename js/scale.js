@@ -34,4 +34,6 @@ const onBiggerClick = () => {
 smallerButton.addEventListener('click', onSmallerClick);
 biggerButton.addEventListener('click', onBiggerClick);
 
-export const resetScale = () => scaleImg(DEFAULT_SCALE);
+const resetScale = () => scaleImg(DEFAULT_SCALE);
+
+export { resetScale };
