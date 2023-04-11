@@ -16,6 +16,13 @@ const shuffleArray = (array) => {
   return array;
 };
 
+const getRandomInteger = (a, b) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
+
 const ALERT_SHOW_TIME = 5000;
 
 const showAlert = (message) => {
@@ -41,4 +48,4 @@ const showAlert = (message) => {
 
 export const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export { debounce, shuffleArray, ALERT_SHOW_TIME, showAlert };
+export {debounce, shuffleArray, getRandomInteger, ALERT_SHOW_TIME, showAlert};

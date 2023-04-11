@@ -4,8 +4,8 @@ const ERROR_MESSAGE = `Загрузите изображения в формат
 
 const chooseFile = (fileInput) => {
   const file = fileInput.files[0];
-  const fileName = file.name.toLowerCase();
-  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+  const fileNAMES = file.NAMES.toLowerCase();
+  const matches = FILE_TYPES.some((it) => fileNAMES.endsWith(it));
   if (matches) {
     imgElement.src = URL.createObjectURL(file);
     return '';
