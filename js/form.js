@@ -95,7 +95,6 @@ function onFormKeyDown(evt) {
   }
 }
 
-// Закрывает сообщение при отправке формы
 const createDisplayMessage = (mode) => {
   const element = document.querySelector(`#${mode}`).content.querySelector(`.${mode}`).cloneNode(true);
   const buttonElement = element.querySelector(`.${mode}__button`);
