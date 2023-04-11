@@ -118,4 +118,4 @@ export const resetEffects = () => {
   updateSlider();
 };
 
-export {imgElement};
+export { imgElement };

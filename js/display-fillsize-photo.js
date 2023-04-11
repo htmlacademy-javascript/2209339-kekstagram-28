@@ -1,4 +1,4 @@
-import {isEscapeKey} from './util.js';
+import { isEscapeKey } from './util.js';
 const bigPicture = document.querySelector('.big-picture');
 const bigPicturesCancel = bigPicture.querySelector('.big-picture__cancel');
 const bigPicturesImg = bigPicture.querySelector('.big-picture__img img');
@@ -19,7 +19,7 @@ const displayComment = (comment) => {
   const socialPicture = socialComment.querySelector('.social__picture');
   const socialText = socialComment.querySelector('.social__text');
   socialPicture.src = comment.avatar;
-  socialPicture.alt = comment.name;
+  socialPicture.alt = comment.NAMES;
   socialText.textContent = comment.message;
   commentsList.append(socialComment);
 };
@@ -73,4 +73,4 @@ bigPicturesCancel.addEventListener('click', () => {
   closeModal();
 });
 
-export {displayFullSizePhoto};
+export { displayFullSizePhoto };
