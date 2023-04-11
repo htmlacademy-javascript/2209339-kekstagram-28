@@ -5,24 +5,24 @@ on:
   pull_request:
     branches: '*'
 
-NAMES: Project check
+name: Project check
 jobs:
   check:
-    NAMES: Check
+    name: Check
     runs-on: ubuntu-latest
     steps:
-    - NAMES: Set up Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '16'
 
     - uses: actions/checkout@master
-      NAMES: Checkout
+      name: Checkout
 
-    - NAMES: Install dependencies
+    - name: Install dependencies
       run: |
         npm install
 
-    - NAMES: Run checks
+    - name: Run checks
       run: |
         npm run lint

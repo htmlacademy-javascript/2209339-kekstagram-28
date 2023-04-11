@@ -1,8 +1,8 @@
-import { setUserFormSubmit } from './form.js';
-import { displayPhotos } from './display-photo.js';
-import { showAlert } from './util.js';
-import { getData } from './api.js';
-import { initFilters } from './filter.js';
+import {setUserFormSubmit} from './form.js';
+import {displayPhotos} from './display-photo.js';
+import {showAlert} from './util.js';
+import {getData} from './api.js';
+import {initFilters} from './filter.js';
 
 getData()
   .then((data) => {

@@ -17,4 +17,4 @@ const sendData = (body) => fetch(
   },
 );
 
-export { getData, sendData };
+export {getData, sendData};

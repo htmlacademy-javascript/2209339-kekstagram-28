@@ -1,9 +1,10 @@
 import {shuffleArray, debounce} from './util.js';
 import {displayPhotos} from './display-photo.js';
 
+const RANDOM_PHOTOS_COUNT = 10;
+
 const imgFilter = document.querySelector('.img-filters');
 const filtersForm = imgFilter.querySelector('.img-filters__form');
-const RANDOM_PHOTOS_COUNT = 10;
 
 const filterCallback = {
   'filter-default': (data) => data,
