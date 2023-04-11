@@ -1,4 +1,4 @@
-import {displayFullSizePhoto} from './display-fillsize-photo.js';
+import { displayFullSizePhoto } from './display-fillsize-photo.js';
 const list = document.querySelector('.pictures');
 const elementTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
@@ -16,4 +16,4 @@ const displayPhotos = (photos) => {
   });
 };
 
-export {displayPhotos};
+export { displayPhotos };
