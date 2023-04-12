@@ -53,16 +53,16 @@ const displayFullSizePhoto = (photo) => {
   currentComments = photo.comments;
   start = 0;
   displayComments();
-  document.addEventListener('keydown', closeModalKeyDown);
+  document.addEventListener('keydown', onModalKeyDown);
 };
 
 const closeModal = () => {
   bigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
-  document.removeEventListener('keydown', closeModalKeyDown);
+  document.removeEventListener('keydown', onModalKeyDown);
 };
 
-function closeModalKeyDown (evt) {
+function onModalKeyDown (evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeModal();

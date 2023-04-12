@@ -74,6 +74,7 @@ const hideModal = () => {
   overlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   imgUploadForm.reset();
+  pristine.reset();
   document.removeEventListener('keydown', onFormKeyDown);
 };
 
@@ -162,7 +163,7 @@ imgUploadStart.addEventListener('change', () => {
   }
 });
 
-imgUploadCancel.addEventListener('click', hideModal);
+imgUploadCancel.addEventListener('click', () => hideModal());
 imgUploadForm.addEventListener('submit', onFormSubmit);
 
 export { setUserFormSubmit };
