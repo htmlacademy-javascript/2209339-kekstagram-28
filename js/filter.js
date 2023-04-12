@@ -9,7 +9,7 @@ const filtersForm = imgFilter.querySelector('.img-filters__form');
 const filterCallback = {
   'filter-default': (data) => data,
   'filter-random': (data) => shuffleArray(data.slice()).slice(0, RANDOM_PHOTOS_COUNT),
-  'filter-discussed': (data) => data.slice().sort((a, b) => b.likes - a.likes),
+  'filter-discussed': (data) => data.slice().sort((a, b) => b.comments.length - a.comments.length),
 };
 
 //Показывает фильтр
